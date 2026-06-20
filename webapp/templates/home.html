@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN-TUN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card home">
+        <h1 class="wordmark">VPN<span class="accent">-TUN</span><span class="caret"></span></h1>
+
+        {% if username %}
+            <p class="eyebrow">// session active</p>
+            <p class="greeting">Hello, {{ username }}</p>
+            <p class="sub">you are connected</p>
+            <div class="actions">
+                <a href="{{ url_for('logout') }}" class="btn secondary">Log out</a>
+            </div>
+        {% else %}
+            <p class="eyebrow">// no active session</p>
+            <p class="greeting">Welcome, guest</p>
+            <p class="sub">log in to access the tunnel</p>
+            <div class="actions">
+                <a href="{{ url_for('login') }}" class="btn">Log in</a>
+                <a href="{{ url_for('register') }}" class="btn secondary">Create an account</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

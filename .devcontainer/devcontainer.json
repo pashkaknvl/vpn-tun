@@ -1,0 +1,11 @@
+{
+  "name": "fedora40-dev",
+  "build": {
+    "dockerfile": "fedora40.Dockerfile"
+  },
+  "runArgs": [
+    "--cap-add=NET_ADMIN",
+    "--device=/dev/net/tun"
+  ],
+  "postCreateCommand": "python3 -m pip install --user pyyaml"
+}
